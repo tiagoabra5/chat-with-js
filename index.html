@@ -4,18 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimento Online</title>
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
-  <title>chat js</title>
 </head>
 
 <body>
   <section class="hero">
     <h2>Bem-vindo ao nosso Atendimento Online</h2>
-    <a href="#chat" class="cta-button">Iniciar Chat</a>
+    <button class="cta-button" onclick="janelaChat()">Iniciar Chat</button>
   </section>
 
-  <section id="chat" class="chat">
+  <div id="cart-container" class="cart-container">
+        <div class="cart-box">
+            <button class="close-button" onclick="janelaChat()">Fechar</button>
+            <div id="chat-box">
+    <section id="chat" class="chat1">
     <h2>Chat de Atendimento</h2>
     <div class="chat-window">
       <!-- Área de exibição do chat -->
@@ -25,6 +29,8 @@
       <button type="submit">Enviar</button>
     </form>
   </section>
+            </div><br>
+        </div>
   </div>
 
 </body>
