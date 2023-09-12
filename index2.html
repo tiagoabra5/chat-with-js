@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Interativo em JavaScript</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Digite sua mensagem..." />
+        <button id="send-button">Enviar</button>
+    </div>
 
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+const chatMessages = document.getElementById('chat-messages');
+const userInput = document.getElementById('user-input');
+const sendButton = document.getElementById('send-button');
+
+// Função para adicionar mensagens ao chat
+function addMessage(user, message) {
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = user + ': ' + message;
+    chatMessages.appendChild(messageDiv);
+}
+
+// Respostas predefinidas
+const responses = {
+    'oi': 'salve, qq tu quer ein misera?',
+    'ola': 'salve, qq tu quer ein misera?',
+    'olá': 'salve, qq tu quer ein misera?',
+    'Ola': 'salve, qq tu quer ein misera?',
+    'Olá': 'salve, qq tu quer ein misera?',
+    'Como você está?': 'to dboa, e tu?',
+    'qual teu vulgo?': 'meu vulgo é cabrunco.',
+    'O que tu pode fazer?': 'Posso responder a perguntas e ajudar com informações.',
+    'Obrigado': 'De nada! Se precisar de mais ajuda, é só perguntar.',
+};
+
+// Evento de clique do botão Enviar
+sendButton.addEventListener('click', function() {
+    const userMessage = userInput.value.trim();
+    if (userMessage !== '') {
+        addMessage('Você', userMessage);
+        userInput.value = '';
+
+        // Verifica se há uma resposta predefinida
+        if (responses.hasOwnProperty(userMessage)) {
+            const response = responses[userMessage];
+            setTimeout(function() {
+                addMessage('cabrunco', response);
+            }, 500); // Simula um atraso de resposta
+        } else {
+            setTimeout(function() {
+                addMessage('cabrunco', 'Desculpe, não entendi a pergunta.');
+            }, 500); // Simula um atraso de resposta
+        }
+    }
+});
+
+// Evento de pressionar a tecla Enter no campo de entrada
+userInput.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        sendButton.click();
+    }
+});
+    </script>
+</body>
+</html>
